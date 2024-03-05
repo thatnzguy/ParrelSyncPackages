@@ -297,8 +297,12 @@ namespace ParrelSync
 
             Project sourceProject = new Project(sourceProjectPath);
             Project cloneProject = new Project(cloneProjectPath);
-
-            FileUtil.ReplaceDirectory(sourceProject.packagesPath, cloneProject.packagesPath);
+            
+            Debug.Log("Packages copy: " + cloneProject.libraryPath);
+            ClonesManager.CopyDirectoryWithProgressBar(sourceProject.packagesPath, cloneProject.packagesPath,
+                "Cloning Project Packages '" + sourceProject.name + "'. ");
+            //
+            // FileUtil.ReplaceDirectory(sourceProject.packagesPath, cloneProject.packagesPath);
         }
 
         #endregion
